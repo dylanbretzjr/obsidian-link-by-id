@@ -82,7 +82,8 @@ export default class LinkAsSearch extends Plugin {
 				await leaf.openFile(targetFile);
 			} else {
 				// Fallback for non-existent files
-				this.app.workspace.openLinkText(destination, sourcePath, evt.metaKey);
+				await this.app.workspace.openLinkText(destination, sourcePath, evt.metaKey);
+
 			}
 
 		}, true);
