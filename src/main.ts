@@ -1,6 +1,20 @@
 import {Notice, Plugin} from 'obsidian';
 import {DEFAULT_SETTINGS, LinkAsSearchSettings, LinkAsSearchSettingTab} from "./settings";
 
+// Explicitly define internal plugins
+declare module 'obsidian' {
+	interface App {
+		internalPlugins: {
+			getPluginById(id: 'global-search'): {
+				enabled: boolean;
+				instance: {
+					openGlobalSearch(query: string): void;
+				};
+			} | undefined;
+		};
+	}
+}
+
 export default class LinkAsSearch extends Plugin {
 	settings: LinkAsSearchSettings;
 
@@ -67,7 +81,7 @@ export default class LinkAsSearch extends Plugin {
 
 			// --- GLOBAL SEARCH ---
 
-			const searchPlugin = (this.app as any).internalPlugins.getPluginById('global-search');
+			const searchPlugin = this.app.internalPlugins.getPluginById('global-search');
 			if (searchPlugin && searchPlugin.enabled) {
 				const exactQuery = `"${destination}"`;
 				searchPlugin.instance.openGlobalSearch(exactQuery);
