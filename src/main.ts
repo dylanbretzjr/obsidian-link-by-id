@@ -1,8 +1,8 @@
-import {Notice, Plugin, TFile} from 'obsidian';
-import {DEFAULT_SETTINGS, MyPluginSettings, LinkAsSearchSettingTab} from "./settings";
+import {Notice, Plugin} from 'obsidian';
+import {DEFAULT_SETTINGS, LinkAsSearchSettings, LinkAsSearchSettingTab} from "./settings";
 
 export default class LinkAsSearch extends Plugin {
-	settings: MyPluginSettings;
+	settings: LinkAsSearchSettings;
 
 	async onload() {
 		await this.loadSettings();
@@ -66,7 +66,7 @@ export default class LinkAsSearch extends Plugin {
 			}
 
 			// --- GLOBAL SEARCH ---
-			
+
 			const searchPlugin = (this.app as any).internalPlugins.getPluginById('global-search');
 			if (searchPlugin && searchPlugin.enabled) {
 				const exactQuery = `"${destination}"`;
@@ -93,7 +93,7 @@ export default class LinkAsSearch extends Plugin {
 	}
 
 	async loadSettings() {
-		this.settings = Object.assign({}, DEFAULT_SETTINGS, await this.loadData() as Partial<MyPluginSettings>);
+		this.settings = Object.assign({}, DEFAULT_SETTINGS, await this.loadData() as Partial<LinkAsSearchSettings>);
 	}
 
 	async saveSettings() {

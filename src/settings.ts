@@ -1,11 +1,11 @@
 import { App, PluginSettingTab, Setting } from 'obsidian';
 import LinkAsSearch from './main';
 
-export interface MyPluginSettings {
+export interface LinkAsSearchSettings {
 	hideUnresolvedIndicator: boolean;
 }
 
-export const DEFAULT_SETTINGS: MyPluginSettings = {
+export const DEFAULT_SETTINGS: LinkAsSearchSettings = {
 	hideUnresolvedIndicator: true
 }
 
