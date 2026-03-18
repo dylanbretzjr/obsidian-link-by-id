@@ -1,9 +1,9 @@
 {
 	"id": "link-as-search",
 	"name": "Link-as-Search",
-	"version": "0.0.0",
+	"version": "0.0.1",
 	"minAppVersion": "0.15.0",
-	"description": "Enable link-as-search. Internal links search across the vault, rather than opening files directly.",
+	"description": "Alters internal links to trigger a global search instead of opening files directly.",
 	"author": "Dylan Bretz Jr.",
 	"authorUrl": "https://github.com/dylanbretzjr",
 	"helpUrl": "https://github.com/dylanbretzjr/obsidian-link-as-search",
