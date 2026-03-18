@@ -1,5 +1,5 @@
-import {Notice, Plugin} from 'obsidian';
-import {DEFAULT_SETTINGS, LinkAsSearchSettings, LinkAsSearchSettingTab} from "./settings";
+import { Notice, Plugin } from 'obsidian';
+import { DEFAULT_SETTINGS, LinkAsSearchSettings, LinkAsSearchSettingTab } from "./settings";
 
 // Explicitly define internal plugins
 declare module 'obsidian' {
