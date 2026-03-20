@@ -1,6 +1,6 @@
 {
-	"id": "link-as-search",
-	"name": "Link-as-Search",
+	"id": "link-by-id",
+	"name": "Link by ID",
 	"version": "0.0.3",
 	"minAppVersion": "1.0.0",
 	"description": "Link notes using unique IDs, rather than full filenames or paths.",
