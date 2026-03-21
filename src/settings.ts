@@ -26,7 +26,7 @@ export class LinkAsSearchSettingTab extends PluginSettingTab {
 
 		new Setting(containerEl)
 			.setName('Search on click (backlink view)')
-			.setDesc('When enabled, clicking on an internal link opens Obsidian\'s Search panel and triggers a vault-wide search using the link target.')
+			.setDesc('Clicking on an internal link opens the Search panel and searches the vault for the link target.')
 			.addToggle(toggle => toggle
 				.setValue(this.plugin.settings.searchOnClick)
 				.onChange(async (value) => {
@@ -35,7 +35,7 @@ export class LinkAsSearchSettingTab extends PluginSettingTab {
 				}));
 
 		new Setting(containerEl)
-			.setName('Hide unresolved link indicator')
+			.setName('Hide unresolved link styling')
 			.setDesc('Removes the dimmed effect from all unresolved links.')
 			.addToggle(toggle => toggle
 				.setValue(this.plugin.settings.hideUnresolvedLinkStyling)
