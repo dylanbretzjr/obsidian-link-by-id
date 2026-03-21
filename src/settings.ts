@@ -34,7 +34,7 @@ export class LinkByIDSettingTab extends PluginSettingTab {
 
 		new Setting(containerEl)
 			.setName('Search on click (backlink view)')
-			.setDesc('Clicking on an internal link opens the Search panel and searches the vault for the link target.')
+			.setDesc('Toggle whether clicking on an internal link opens the search panel and searches the vault for the link target.')
 			.addToggle(toggle => toggle
 				.setValue(this.plugin.settings.searchOnClick)
 				.onChange(async (value) => {
@@ -81,7 +81,7 @@ export class LinkByIDSettingTab extends PluginSettingTab {
 
 		triggerSetting = new Setting(containerEl)
 			.setName('Trigger string')
-			.setDesc('The character sequence that activates the link ID autocompletion. Avoid using markdown syntactical elements, e.g., `_`, `*`, `>`, or `[`')
+			.setDesc('Specify the character sequence that activates the link ID autocomplete search. Avoid using common markdown elements (e.g., `_`, `*`, `>`, or `[`)')
 			.addText(text => text
 				.setPlaceholder('@@')
 				.setValue(this.plugin.settings.triggerString)
@@ -92,7 +92,7 @@ export class LinkByIDSettingTab extends PluginSettingTab {
 
 		delimiterSetting = new Setting(containerEl)
 			.setName('ID delimiter')
-			.setDesc('The character(s) separating the ID from the rest of the filename. Must not be a character used in the ID itself.')
+			.setDesc('Specify the character(s) separating the ID from the rest of the filename (e.g., a space or dash). Must not be a character used in the ID itself.')
 			.addText(text => text
 				.setPlaceholder('-')
 				.setValue(this.plugin.settings.idDelimiter)
@@ -103,7 +103,7 @@ export class LinkByIDSettingTab extends PluginSettingTab {
 
 		positionSetting = new Setting(containerEl)
 			.setName('ID position')
-			.setDesc('Where the ID is located in your filenames.')
+			.setDesc('Set whether the ID is located at the start or end of filenames.')
 			.addDropdown(dropdown => dropdown
 				.addOption('start', 'Start of filename')
 				.addOption('end', 'End of filename')
