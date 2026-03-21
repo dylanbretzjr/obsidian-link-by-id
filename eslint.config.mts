@@ -22,6 +22,12 @@ export default tseslint.config(
 		},
 	},
 	...obsidianmd.configs.recommended,
+	{
+		rules: {
+			"obsidianmd/ui/sentence-case": "off",
+			"obsidianmd/settings-tab/no-manual-html-headings": "off"
+		}
+	},
 	globalIgnores([
 		"node_modules",
 		"dist",
