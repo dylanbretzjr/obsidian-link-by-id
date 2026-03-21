@@ -3,10 +3,12 @@ import LinkAsSearch from './main';
 
 export interface LinkAsSearchSettings {
 	hideUnresolvedIndicator: boolean;
+	searchOnClick: boolean;
 }
 
 export const DEFAULT_SETTINGS: LinkAsSearchSettings = {
-	hideUnresolvedIndicator: true
+	hideUnresolvedIndicator: true,
+	searchOnClick: false
 }
 
 export class LinkAsSearchSettingTab extends PluginSettingTab {
@@ -21,6 +23,16 @@ export class LinkAsSearchSettingTab extends PluginSettingTab {
 		const {containerEl} = this;
 
 		containerEl.empty();
+
+		new Setting(containerEl)
+			.setName('Search on click (backlink view)')
+			.setDesc('When enabled, clicking on an internal link opens Obsidian\'s Search panel and triggers a vault-wide search using the link target.')
+			.addToggle(toggle => toggle
+				.setValue(this.plugin.settings.searchOnClick)
+				.onChange(async (value) => {
+					this.plugin.settings.searchOnClick = value;
+					await this.plugin.saveSettings();
+				}));
 
 		new Setting(containerEl)
 			.setName('Hide unresolved link indicator')

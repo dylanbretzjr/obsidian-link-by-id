@@ -79,11 +79,13 @@ export default class LinkAsSearch extends Plugin {
 			const targetFile = this.getFileFromID(destination, sourcePath);
 
 			// --- GLOBAL SEARCH ---
-			const searchPlugin = this.app.internalPlugins.getPluginById('global-search');
-			if (searchPlugin && searchPlugin.enabled) {
-				const exactQuery = `"${destination}"`;
-				searchPlugin.instance.openGlobalSearch(exactQuery);
-				new Notice(`Searching vault for: ${exactQuery}`);
+			if (this.settings.searchOnClick) {
+				const searchPlugin = this.app.internalPlugins.getPluginById('global-search');
+				if (searchPlugin && searchPlugin.enabled) {
+					const exactQuery = `"${destination}"`;
+					searchPlugin.instance.openGlobalSearch(exactQuery);
+					new Notice(`Searching vault for: ${exactQuery}`);
+				}
 			}
 
 			// --- OPENING THE FILE ---
