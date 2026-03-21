@@ -1,10 +1,10 @@
 import { App, Editor, EditorPosition, EditorSuggest, EditorSuggestContext, EditorSuggestTriggerInfo, TFile } from 'obsidian';
-import LinkAsSearch from './main';
+import LinkByID from './main';
 
 export class LinkIdAutocomplete extends EditorSuggest<TFile> {
-	plugin: LinkAsSearch;
+	plugin: LinkByID;
 
-	constructor(app: App, plugin: LinkAsSearch) {
+	constructor(app: App, plugin: LinkByID) {
 		super(app);
 		this.plugin = plugin;
 	}

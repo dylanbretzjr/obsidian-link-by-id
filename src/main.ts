@@ -1,5 +1,5 @@
 import { Notice, Plugin, TFile } from 'obsidian';
-import { DEFAULT_SETTINGS, LinkAsSearchSettings, LinkAsSearchSettingTab } from "./settings";
+import { DEFAULT_SETTINGS, LinkByIDSettings, LinkByIDSettingTab } from "./settings";
 import { LinkIdAutocomplete } from './autocomplete';
 
 // Explicitly define internal plugins
@@ -16,13 +16,13 @@ declare module 'obsidian' {
 	}
 }
 
-export default class LinkAsSearch extends Plugin {
-	settings: LinkAsSearchSettings;
+export default class LinkByID extends Plugin {
+	settings: LinkByIDSettings;
 
 	async onload() {
 		await this.loadSettings();
 
-		this.addSettingTab(new LinkAsSearchSettingTab(this.app, this));
+		this.addSettingTab(new LinkByIDSettingTab(this.app, this));
 		this.toggleUnresolvedClass();
 		this.registerEditorSuggest(new LinkIdAutocomplete(this.app, this));
 
@@ -107,7 +107,7 @@ export default class LinkAsSearch extends Plugin {
 	}
 
 	async loadSettings() {
-		this.settings = Object.assign({}, DEFAULT_SETTINGS, await this.loadData() as Partial<LinkAsSearchSettings>);
+		this.settings = Object.assign({}, DEFAULT_SETTINGS, await this.loadData() as Partial<LinkByIDSettings>);
 	}
 
 	async saveSettings() {

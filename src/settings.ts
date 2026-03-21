@@ -1,7 +1,7 @@
 import { App, PluginSettingTab, Setting } from 'obsidian';
-import LinkAsSearch from './main';
+import LinkByID from './main';
 
-export interface LinkAsSearchSettings {
+export interface LinkByIDSettings {
 	searchOnClick: boolean;
 	hideUnresolvedLinkStyling: boolean;
 	enableLinkIdAutocomplete: boolean;
@@ -10,7 +10,7 @@ export interface LinkAsSearchSettings {
 	idPosition: 'start' | 'end';
 }
 
-export const DEFAULT_SETTINGS: LinkAsSearchSettings = {
+export const DEFAULT_SETTINGS: LinkByIDSettings = {
 	searchOnClick: false,
 	hideUnresolvedLinkStyling: false,
 	enableLinkIdAutocomplete: false,
@@ -19,10 +19,10 @@ export const DEFAULT_SETTINGS: LinkAsSearchSettings = {
 	idPosition: 'start'
 }
 
-export class LinkAsSearchSettingTab extends PluginSettingTab {
-	plugin: LinkAsSearch;
+export class LinkByIDSettingTab extends PluginSettingTab {
+	plugin: LinkByID;
 
-	constructor(app: App, plugin: LinkAsSearch) {
+	constructor(app: App, plugin: LinkByID) {
 		super(app, plugin);
 		this.plugin = plugin;
 	}
