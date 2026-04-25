@@ -10,6 +10,16 @@ The same search logic applies to page previews, so hovering over these links wil
 
 This approach decouples the link target from the note title itself, which allows each note to have a permanent location by using a unique ID (UID) that remains stable even if the note title changes. This is consistent with the software agnostic approach to Zettelkasten as discussed at <https://zettelkasten.de/>.
 
+## Installation
+
+Until it reviewed as an official Obsidian plugin, the only way to install this plugin is manually:
+
+1. Clone the plugin repo using git to a folder .obsidian/plugins/ within your Obsidian vault
+2. npm install
+3. npm run build
+4. In Obsidian, go to Settings > Community Plugins, and refresh next to "Install Plugins".
+5. Flip the toggle next to "Link By ID" to on.
+
 ## Settings
 
 - **Search on click (backlink view)**---When enabled, clicking on an internal link opens Obsidian's Search panel and triggers a vault-wide search using the link target as the query. This provides a way of viewing backlinks.
